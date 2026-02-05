@@ -1,0 +1,33 @@
+<div class="login-card">
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="login-container">
+  <h2>Sign In</h2>
+
+  <div class="field">
+    <label>Email:</label>
+    <input
+      type="email"
+      formControlName="email"
+      placeholder="your@email.com">
+    @if (loginForm.controls.email.touched && loginForm.controls.email.errors?.['email']) {
+      <small class="error">Please enter a valid email format</small>
+    }
+  </div>
+
+  <div class="field">
+    <label>Password:</label>
+    <input
+      type="password"
+      formControlName="password"
+      placeholder="Enter your password">
+    @if (loginForm.controls.password.touched && loginForm.controls.password.errors?.['required']) {
+      <small class="error">Password is required</small>
+    }
+  </div>
+
+  <button
+    type="submit"
+    [disabled]="loginForm.invalid">
+    Enter
+  </button>
+    </form>
+</div>
