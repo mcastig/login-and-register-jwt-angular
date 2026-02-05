@@ -1,1 +1,18 @@
-<p>dashboard.component works!</p>
+<div class="dashboard-container">
+  <nav class="navbar">
+    <h1>Dashboard</h1>
+    <button (click)="logout()" class="btn-logout">Close Session</button>
+  </nav>
+
+  <main class="content">
+    @if (user()) {
+      <div class="welcome-card">
+        <h2>¡Welcome back, {{ user().name }}!</h2>
+        <p>Your email is: <strong>{{ user().email }}</strong></p>
+        <p>Your current role is: <span class="badge">{{ user().role }}</span></p>
+      </div>
+    } @else {
+      <p>Loading data of user profile...</p>
+    }
+  </main>
+</div>
